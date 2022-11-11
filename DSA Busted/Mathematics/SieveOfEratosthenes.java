@@ -4,7 +4,7 @@ public class SieveOfEratosthenes {
     // Time Complexity O(N * log(logN))
     // Space Complexity O(N)
     public static void main(String [] args){
-        int n = 40;
+        int n = 7;
         boolean [] primes = new boolean[n + 1];
         // By Default all the values in the Boolean Array are false
 //        System.out.println(Arrays.toString(primes));
