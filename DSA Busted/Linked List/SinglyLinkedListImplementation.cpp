@@ -58,7 +58,7 @@ void insertNodeAtPosition(LinkedList* &head,LinkedList* &tail, int position, int
 
 void deleteFromAnyPosition(LinkedList* &head, int position){
     LinkedList* temp=head;
-    LinkedList* deleteNode;
+    LinkedList* deleteNode=head;
     int i=0;
     if(position==1){
         head=head->next;
@@ -71,12 +71,9 @@ void deleteFromAnyPosition(LinkedList* &head, int position){
     if(temp->next->next==NULL){
         deleteNode= temp->next->next;
         temp->next=NULL;
-        delete deleteNode;
     }
     else{
-        deleteNode=temp->next->next;
         temp->next=temp->next->next;
-        delete deleteNode;
     }
 }
 
@@ -88,6 +85,51 @@ void printList(LinkedList* &head){
     }
 }
 
+LinkedList* reverse(LinkedList* head, int size){
+
+    LinkedList* temp= head;
+    LinkedList* prev= nullptr;
+    LinkedList* curr= temp;
+    LinkedList* next=temp->next;
+
+    while (size>=0)
+    {
+    
+        next= curr->next;
+        curr->next= prev;
+        prev= curr;
+        curr= next;
+        size--;
+    }
+
+    head->next= curr;
+
+    return prev;
+
+}
+
+LinkedList* reverseBetween(LinkedList* head, int left, int right) {
+        
+        LinkedList* temp= head;
+        LinkedList* prev= nullptr;
+        LinkedList* curr= temp;
+        LinkedList* next=temp->next;
+        
+        int i=0;
+        
+        while(curr!=nullptr){
+            i++;
+            if(i==(left-1)){
+                curr->next= reverse(curr->next,right-left);
+                break;
+            }
+            prev= curr;
+            curr= curr->next;            
+        }
+        
+        return head;
+    }
+
 int main(){
 
     LinkedList* value1=new LinkedList(20);
@@ -97,16 +139,21 @@ int main(){
     insertNodeAtTail(tail,40);
     insertNodeAtTail(tail,50);
 
-    insertNodeAtPosition(value1,tail,5,25);
+    // insertNodeAtPosition(value1,tail,5,25);
 
-    // insertNodeAtTail(tail,23);
-    // insertNodeAtTail(tail,57);
+    insertNodeAtTail(tail,23);
+    insertNodeAtTail(tail,57);
 
     printList(value1);
     cout<<endl;
 
-    deleteFromAnyPosition(value1,1);
+    reverseBetween(value1, 2,4);
 
     printList(value1);
+    
+
+    // deleteFromAnyPosition(value1,4);
+
+    // printList(value1);
 
 }
