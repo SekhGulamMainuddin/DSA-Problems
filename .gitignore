@@ -2,3 +2,5 @@
 *.class
 *.stackdump
 .vscode/*
+MyTempCode.cpp
+MyTempCode.java
