@@ -1,6 +1,10 @@
 
 // https://leetcode.com/problems/min-stack/description/
 
+/*Important Formulas ->
+    While storing Next Minimum ->  minElement= 2*curr - minElement
+    While poping the current Minimum element -> minElement= 2*minElement - curr
+*/
 class MinStack {
     stack<long> st;
     int minElement= INT_MAX;
@@ -22,7 +26,7 @@ public:
             return;
 
         if(st.top()<minElement){
-            minElement= 2ll*minElement - st.top();
+            minElement= 2ll*minElement - st.top(); 
         }            
         st.pop();
 
