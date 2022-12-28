@@ -3,7 +3,9 @@
         "iostream": "cpp",
         "new": "cpp",
         "vector": "cpp",
-        "exception": "cpp"
+        "exception": "cpp",
+        "deque": "cpp",
+        "string": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }
