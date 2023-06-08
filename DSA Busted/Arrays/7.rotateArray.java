@@ -31,7 +31,7 @@ class Solution {
     }
 }
 
-https://practice.geeksforgeeks.org/problems/rotate-array-by-n-elements-1587115621/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
+// https://practice.geeksforgeeks.org/problems/rotate-array-by-n-elements-1587115621/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
 
 // Using Reversal Algorithm TC - O(N) SC - O(1)
 // class Solution{
