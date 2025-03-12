@@ -18,7 +18,6 @@ bool cycleDFS(int i, unordered_map<int, bool> &visited, unordered_map<int, bool>
         }
     }
     
-    visited[i]= false;
     dfsVisited[i]= false;
     return false;
     
