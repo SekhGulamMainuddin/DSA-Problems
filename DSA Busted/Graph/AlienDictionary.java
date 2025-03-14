@@ -2,7 +2,7 @@
 
 import java.util.*;
 
-class Solution {
+class AlienDictionary {
     public String findOrder(String[] words) {
         // Step 1: Initialize the graph for 26 lowercase letters (a-z)
         // We use an adjacency list representation where each character maps to a set of characters that come after it
