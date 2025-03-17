@@ -1,7 +1,7 @@
 
 // https://leetcode.com/problems/minimum-swaps-to-make-sequences-increasing/description/
 
-class Solution {
+class _5HouseRobber {
 public:
     // Simple Recursive Solution
     // int solve(vector<int>& nums1, vector<int>& nums2, int index, bool swapped) {
