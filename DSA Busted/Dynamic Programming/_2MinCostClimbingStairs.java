@@ -31,7 +31,7 @@ Approach:
 
 import java.util.Arrays;
 
-class _2MinCostClimbingStairs {
+class 2_MinCostClimbingStairs {
     // Recursive DP with Memoization
     private int recMinCost(int[] cost, int i, int[] dp) {
         if (i == 0 || i == 1) {
