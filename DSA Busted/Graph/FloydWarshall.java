@@ -17,7 +17,7 @@
  *    - Any distance still set as Integer.MAX_VALUE is converted back to -1 to indicate no path.
  */
 
- class FloydWarshall {
+class FloydWarshall {
     public void shortestDistance(int[][] mat) {
         int n = mat.length;
 
