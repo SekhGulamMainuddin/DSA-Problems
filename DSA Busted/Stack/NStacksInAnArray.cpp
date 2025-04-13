@@ -53,7 +53,6 @@ public:
         top[m-1]= index;
         
         return true;
-        
     }
 
     // Pops top element from Mth Stack. Returns -1 if the stack is empty, otherwise returns the popped element.
