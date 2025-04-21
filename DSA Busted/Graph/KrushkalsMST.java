@@ -2,7 +2,7 @@
 // https://www.codingninjas.com/codestudio/problems/minimum-spanning-tree_631769?topList=love-babbar-dsa-sheet-problems&leftPanelTab=1&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbar
 import java.util.*;
 
-public class MinimumSpanningTreeUsingKrushkalsAlgorithm {
+public class KrushkalsMST {
 
     // Function to initialize the Disjoint Set (Union-Find) structure
     private static void makeSet(int[] parent, int[] rank, int n) {

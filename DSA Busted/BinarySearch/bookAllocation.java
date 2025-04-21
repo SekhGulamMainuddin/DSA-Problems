@@ -3,7 +3,7 @@
 
 import java.util.*;
 
-class Solution {
+class BookAllocation {
     public static int allocateBooks(ArrayList<Integer> arr, int n, int m) {
         // Write your code here.
 

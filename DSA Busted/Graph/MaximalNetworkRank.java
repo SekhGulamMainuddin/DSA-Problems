@@ -4,6 +4,7 @@
 class Solution {
     public int maximalNetworkRank(int n, int[][] roads) {
 
+        // TC: O(n^2) and SC: O(n^2)
         int[] count = new int[n];
         int[][] directRoad = new int[n][n];
 
@@ -22,6 +23,7 @@ class Solution {
         }
         return rank;
 
+        // Brute Force Approach with TC: O(n^3) and SC: O(1)
         // int rank = 0;
         // for (int i = 0; i < n; i++) {
         //     for (int j = i + 1; j < n; j++) {

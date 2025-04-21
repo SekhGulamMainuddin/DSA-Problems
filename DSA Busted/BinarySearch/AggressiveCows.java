@@ -3,7 +3,7 @@
 
 import java.util.*;
 
-class Solution 
+class AggressiveCows 
 {
     public static int aggressiveCows(ArrayList<Integer> stalls, int k) 
     {
