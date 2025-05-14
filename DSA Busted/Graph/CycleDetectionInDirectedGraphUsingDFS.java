@@ -3,6 +3,7 @@
 import java.util.*;
 
 public class CycleDetectionInDirectedGraphUsingDFS {
+    
     public static boolean detectCycleInDirectedGraph(int n, ArrayList<ArrayList<Integer>> edges) {
         // Create adjacency list
         List<List<Integer>> adj = new ArrayList<>();
@@ -16,38 +17,36 @@ public class CycleDetectionInDirectedGraphUsingDFS {
             adj.get(u).add(v);
         }
 
-        // Compute in-degree of all nodes
-        int[] inDegree = new int[n + 1];
+        boolean[] visited = new boolean[n + 1];
+        boolean[] dfsVisited = new boolean[n + 1];
+
         for (int i = 1; i <= n; i++) {
-            for (int neighbor : adj.get(i)) {
-                inDegree[neighbor]++;
-            }
-        }
-
-        // Add nodes with in-degree 0 to the queue
-        Queue<Integer> queue = new LinkedList<>();
-        for (int i = 1; i <= n; i++) {
-            if (inDegree[i] == 0) {
-                queue.offer(i);
-            }
-        }
-
-        // Count of visited nodes
-        int count = 0;
-
-        while (!queue.isEmpty()) {
-            int curr = queue.poll();
-            count++;
-
-            for (int neighbor : adj.get(curr)) {
-                inDegree[neighbor]--;
-                if (inDegree[neighbor] == 0) {
-                    queue.offer(neighbor);
+            if (!visited[i]) {
+                if (dfsCycleCheck(i, adj, visited, dfsVisited)) {
+                    return true; // Cycle detected
                 }
             }
         }
 
-        // If count != n, a cycle exists
-        return count != n;
+        return false; // No cycle
+    }
+
+    private static boolean dfsCycleCheck(int node, List<List<Integer>> adj, boolean[] visited, boolean[] dfsVisited) {
+        visited[node] = true;
+        dfsVisited[node] = true;
+
+        for (int neighbor : adj.get(node)) {
+            if (!visited[neighbor]) {
+                if (dfsCycleCheck(neighbor, adj, visited, dfsVisited)) {
+                    return true;
+                }
+            } else if (dfsVisited[neighbor]) {
+                // A back edge is found -> cycle detected
+                return true;
+            }
+        }
+
+        dfsVisited[node] = false; // backtrack
+        return false;
     }
 }
