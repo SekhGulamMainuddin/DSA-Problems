@@ -3,6 +3,47 @@
 
 import java.util.*; 
 
+/*
+ * Prim’s Algorithm – Intuition and Explanation
+ * ---------------------------------------------
+ * Prim’s Algorithm is a greedy algorithm used to find the Minimum Spanning Tree (MST) 
+ * of a connected, undirected, weighted graph.
+ *
+ * A Minimum Spanning Tree (MST) is:
+ * - A subset of the edges that connects all vertices,
+ * - Without forming any cycles,
+ * - With the minimum total edge weight.
+ *
+ * 🧠 Intuition:
+ * Start from any node (e.g., node 1). At every step:
+ * 1. Pick the edge with the smallest weight that connects a node inside the MST to a node outside.
+ * 2. Add that edge and the new node to the MST.
+ * 3. Repeat until all nodes are included.
+ *
+ * ✅ Why it works:
+ * - Always expands the MST using the minimum weight edge.
+ * - Ensures no cycles and minimum total cost.
+ *
+ * 🆚 Kruskal’s vs Prim’s:
+ * - Kruskal’s: Edge-based, uses sorting and Union-Find (good for sparse graphs).
+ * - Prim’s: Node-based, grows MST from a node using a min-heap (better for dense graphs).
+ *
+ * ⏱️ Time Complexity:
+ * - Naive implementation (without PriorityQueue): O(n^2)
+ * - Efficient implementation (with PriorityQueue): O((n + m) * log n)
+ *   where n = number of nodes, m = number of edges.
+ *
+ * 💡 Data Structures Used:
+ * - Adjacency List: To store the graph.
+ * - keys[]: Minimum weight edge needed to include a node in MST.
+ * - parent[]: Stores the parent node to reconstruct the MST.
+ * - mst[]: Boolean array to track which nodes are already in the MST.
+ * - PriorityQueue (Min-Heap): To always fetch the next node with the smallest connecting edge.
+ *
+ * 📌 Result:
+ * The final MST is represented as a list of edges: [parent, child, weight]
+ */
+
 public class PrimsMST 
 {
     public static ArrayList<ArrayList<Integer>> calculatePrimsMST(int n, int m, ArrayList<ArrayList<Integer>> g)

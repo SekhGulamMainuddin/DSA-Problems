@@ -2,6 +2,30 @@
 // https://www.codingninjas.com/codestudio/problems/count-strongly-connected-components-kosaraju-s-algorithm_1171151?leftPanelTab=1
 import java.util.*;
 
+/*
+ * Kosaraju’s Algorithm - Intuition and Steps
+ * ------------------------------------------
+ * Goal: Count number of Strongly Connected Components (SCCs) in a directed graph.
+ * 
+ * 🔁 Strongly Connected Component: A group of nodes where each node is reachable from every other node in the same group.
+ *
+ * ✅ 3 Step Kosaraju’s Algorithm:
+ * -----------------------------
+ * 1️⃣ Do a **DFS** on the original graph and **push nodes into a stack** in order of their **finish times**. (Find the Topological Sort)
+ * 
+ * 2️⃣ **Reverse** all the edges of the graph to form the **transpose** graph.
+ * 
+ * 3️⃣ While the stack is not empty:
+ *     - Pop a node from the stack.
+ *     - If it's not visited, do a **DFS on the transpose graph** starting from that node.
+ *     - That DFS call gives you **one complete SCC** — increment the count.
+ * 
+ * 📦 Time Complexity:
+ * - Build graph + transpose: O(E)
+ * - 2 DFS traversals: O(V + E)
+ * - Overall: O(V + E)
+ */
+
 public class KosarajusAlgorithm {
     private static void dfs(int node, Map<Integer, List<Integer>> adj, boolean[] visited, Stack<Integer> topo) {
         visited[node] = true;

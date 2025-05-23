@@ -8,8 +8,10 @@ public class BellmanFordAlgorithm {
         Arrays.fill(distance, (int) 1e8); // Use a large number to represent infinity
         distance[src] = 0;
 
-        // Relax all edges n-1 times
-        
+        // Relax all edges (n - 1) times.
+        // This is because the shortest possible path in a graph with n vertices
+        // can have at most (n - 1) edges. By relaxing all edges (n - 1) times,
+        // we ensure that the shortest distances are correctly propagated.
         for (int i = 1; i < n; i++) {
             for (List<Integer> edge : edges) {
                 int u = edge.get(0);
