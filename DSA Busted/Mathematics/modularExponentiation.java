@@ -1,7 +1,7 @@
 
 // https://www.codingninjas.com/codestudio/problems/modular-exponentiation_1082146?utm_source=youtube&utm_medium=affiliate&utm_campaign=love_babbar_7
 
-class Solution {
+class ModularExponentiation {
     public static int modularExponentiation(int x, int n, int m) {
         // Write your code here.  
        long ans = 1;

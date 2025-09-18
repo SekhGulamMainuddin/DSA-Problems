@@ -1,5 +1,5 @@
 
-public class newtonSquareRoot {
+class NewtonSquareRoot {
     // Calculating Square Root of a Number Using Newton's Square Root Method
     public static void main(String [] args){
         double num = 40;
