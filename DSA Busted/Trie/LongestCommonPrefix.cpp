@@ -1,6 +1,10 @@
 
 // https://leetcode.com/problems/longest-common-prefix/
 
+#include<iostream>
+
+using namespace std;
+
 class TrieNode{
     public:
         char ch;
