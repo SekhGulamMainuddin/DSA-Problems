@@ -1,5 +1,5 @@
 
-//https://leetcode.com/problems/complement-of-base-10-integer/submissions/
+//https://leetcode.com/problems/complement-of-base-10-integer/
 
 class Solution {
 public:

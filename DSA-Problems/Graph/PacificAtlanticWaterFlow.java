@@ -153,3 +153,57 @@ class PacificAtlanticWaterFlow {
     }
 }
 
+
+/// My Own Solution
+class Solution {
+    private int[] dx = {0, 0, 1, -1};
+    private int[] dy = {1, -1, 0, 0};
+    public List<List<Integer>> pacificAtlantic(int[][] heights) {
+        List<List<Integer>> ans = new ArrayList<>();
+        int nr = heights.length;
+        int nc = heights[0].length;
+        int[][] pFlow = new int[nr][nc];
+        int[][] aFlow = new int[nr][nc];
+
+        for(int r=0; r<heights.length; r++) {
+            markWaterFlow(heights, pFlow, r, 0);
+            markWaterFlow(heights, aFlow, r, heights[0].length-1);
+        }
+
+        for(int c=0; c<heights[0].length; c++) {
+            markWaterFlow(heights, pFlow, 0, c);
+            markWaterFlow(heights, aFlow, heights.length-1, c);
+        }
+
+        for(int r=0; r<heights.length; r++) {
+            for(int c=0; c<heights[0].length; c++) {
+                if(pFlow[r][c]==1 && aFlow[r][c]==1) {
+                    List<Integer> list = new ArrayList<>();
+                    list.add(r);
+                    list.add(c);
+                    ans.add(list);
+                }
+            }
+        }
+
+        return ans;
+    }
+
+    private void markWaterFlow(int[][] heights, int[][] flow, int r, int c) {
+        if(flow[r][c]==1) {
+            return;
+        }
+        flow[r][c] = 1;
+
+        for(int i=0; i<4; i++) {
+            int newR = r+dx[i];
+            int newC = c+dy[i];
+            if(newR<heights.length && newR>=0 && newC<heights[0].length && newC>=0) {
+                int sideHeight = heights[r+dx[i]][c+dy[i]];
+                if(sideHeight>=heights[r][c]) {
+                    markWaterFlow(heights, flow, r+dx[i], c+dy[i]);
+                }
+            }
+        }
+    }
+}
