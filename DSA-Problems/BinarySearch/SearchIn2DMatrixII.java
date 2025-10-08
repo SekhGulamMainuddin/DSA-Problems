@@ -1,7 +1,7 @@
 
 // https://leetcode.com/problems/search-a-2d-matrix-ii/
 
-class Solution {
+class SearchIn2DMatrixII {
     public boolean searchMatrix(int[][] matrix, int target) {
 
         if(matrix == null || matrix.length < 1 || matrix[0].length <1) {
